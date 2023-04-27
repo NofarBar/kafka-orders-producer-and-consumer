@@ -21,6 +21,6 @@ public class OrderController {
     public ResponseEntity<String> publish(@PathVariable(value="store_id") String store_id, @RequestBody Order order) throws JsonProcessingException {
         order.setStore_id(Integer.parseInt(store_id));
         this.orderProducer.sendMessage(order);
-        return ResponseEntity.ok("Message sent to kafka topic");
+        return ResponseEntity.ok("New order sent");
     }
 }
